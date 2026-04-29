@@ -1,0 +1,61 @@
+const principles = [
+  {
+    title: "DRY and legible code",
+    body: 'I strive to make code that is human-readable, but with consistency and properly separated concerns. I look for the best solution, not just "a solution"',
+  },
+  {
+    title: "Embrace AI tooling",
+    body: "I utilize AI to move faster. I also read, test and think critically about the results to produce reliable and refined features. Speed without understanding produces unnecessary tech debt.",
+  },
+  {
+    title: "Accessibility matters",
+    body: "Keyboard navigation, semantic HTML, visible focus, contrast that works in sunlight. A site that only works for the median user is broken — it just hasn't been measured yet.",
+  },
+  {
+    title: "Leave it better than you found it",
+    body: "I pay attention to detail for continuous improvement. Rename unclear variables, add missing tests, prune dead code etc. A codebase is like a living organism that requires upkeep. The next person to touch the code doesn't need to be me to find their footing.",
+  },
+  {
+    title: "Ship the thing",
+    body: "Perfectionism has its limitations, though. Businesses need results. Iteration is the key to consistent results and improvement.",
+  },
+];
+
+export function Principles() {
+  return (
+    <section
+      id="principles"
+      className="relative py-32 px-6 sm:px-10 max-w-5xl mx-auto scroll-mt-16"
+    >
+      <p className="font-mono text-sm text-cyan mb-3 tracking-wider">
+        <span className="text-fg-muted">{"// "}</span>
+        principles
+      </p>
+      <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-4">
+        How I work.
+      </h2>
+      <p className="text-fg-muted text-lg max-w-2xl mb-12">
+        An evolving list that guides my approach to software development.
+      </p>
+
+      <ol className="space-y-8">
+        {principles.map((p, i) => (
+          <li key={p.title} className="grid grid-cols-[3rem_1fr] gap-4">
+            <span
+              aria-hidden="true"
+              className="font-mono text-cyan text-sm pt-1.5"
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="font-mono text-lg font-semibold text-fg mb-2">
+                {p.title}
+              </h3>
+              <p className="text-fg/80 leading-relaxed">{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
