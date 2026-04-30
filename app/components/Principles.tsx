@@ -31,12 +31,9 @@ export function Principles() {
         <span className="text-fg-muted">{"// "}</span>
         principles
       </p>
-      <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-4">
+      <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-12">
         How I work.
       </h2>
-      <p className="text-fg-muted text-lg max-w-2xl mb-12">
-        An evolving list that guides my approach to software development.
-      </p>
 
       <ol className="space-y-8">
         {principles.map((p, i) => (

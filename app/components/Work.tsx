@@ -34,7 +34,7 @@ export function Work() {
         portfolio
       </p>
       <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-4">
-        Selected Works.
+        Selected works.
       </h2>
       <p className="font-mono text-sm text-fg-muted max-w-2xl mb-12 leading-relaxed">
         <span className="text-magenta">{"!"}</span> These apps are built to

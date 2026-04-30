@@ -41,7 +41,7 @@ export function About() {
         about
       </p>
       <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-12">
-        Hello, world.
+        Who I am.
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start">
