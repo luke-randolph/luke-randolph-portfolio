@@ -6,7 +6,8 @@ type SmokeLayerProps = {
   seed: number;
   baseFrequency: string;
   rgb: [number, number, number];
-  viewBoxHeight: number;
+  width: number;
+  height: number;
   className?: string;
 };
 
@@ -16,7 +17,8 @@ export function SmokeLayer({
   seed,
   baseFrequency,
   rgb,
-  viewBoxHeight,
+  width,
+  height,
   className,
 }: SmokeLayerProps) {
   const filterId = `smoke-${id}-filter`;
@@ -29,9 +31,11 @@ export function SmokeLayer({
       ref={ref}
       aria-hidden="true"
       preserveAspectRatio="none"
-      viewBox={`0 0 1600 ${viewBoxHeight}`}
+      viewBox={`0 0 1600 ${height}`}
       className={className}
       style={{
+        width: `${width}px`,
+        height: `${height}px`,
         opacity: 0,
         maskImage:
           "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
@@ -62,12 +66,12 @@ export function SmokeLayer({
           <stop offset="100%" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <mask id={maskId} maskUnits="userSpaceOnUse">
-          <rect width="1600" height={viewBoxHeight} fill={`url(#${gradId})`} />
+          <rect width="1600" height={height} fill={`url(#${gradId})`} />
         </mask>
       </defs>
       <rect
         width="1600"
-        height={viewBoxHeight}
+        height={height}
         filter={`url(#${filterId})`}
         mask={`url(#${maskId})`}
       />
