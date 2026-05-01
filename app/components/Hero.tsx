@@ -18,14 +18,11 @@ export function Hero() {
       </p>
 
       <p className="mt-6 max-w-xl text-lg text-fg/90 leading-relaxed">
-        I build resilient, accessible web applications.
+        I build resilient, accessible web applications:
       </p>
       <ul className="list-disc list-inside">
-        <li>
-          UIs that look good and function quickly on all devices even when the
-          network is bad.
-        </li>
-        <li>APIs and data layers that are reliable and efficient.</li>
+        <li>UIs that look good and function quickly on all devices</li>
+        <li>APIs and data layers that are reliable and efficient</li>
       </ul>
     </section>
   );

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ScanlineGrid } from "./components/ScanlineGrid";
+import { Cityscape } from "./components/Cityscape";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -48,9 +49,10 @@ export default function RootLayout({
       <body className="relative min-h-full bg-bg text-fg font-sans">
         <div
           aria-hidden="true"
-          className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_-10%,rgba(0,240,255,0.18),transparent_55%),radial-gradient(circle_at_85%_110%,rgba(255,43,214,0.15),transparent_55%)]"
+          className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_85%_-10%,rgba(0,240,255,0.18),transparent_45%),radial-gradient(circle_at_15%_110%,rgba(255,43,214,0.15),transparent_45%)]"
         />
         <ScanlineGrid />
+        <Cityscape />
         {children}
       </body>
     </html>

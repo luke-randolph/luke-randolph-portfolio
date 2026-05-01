@@ -1,3 +1,5 @@
+import { Section } from "./Section";
+
 const principles = [
   {
     title: "DRY and legible code",
@@ -23,18 +25,7 @@ const principles = [
 
 export function Principles() {
   return (
-    <section
-      id="principles"
-      className="relative py-32 px-6 sm:px-10 max-w-5xl mx-auto scroll-mt-16"
-    >
-      <p className="font-mono text-sm text-cyan mb-3 tracking-wider">
-        <span className="text-fg-muted">{"// "}</span>
-        principles
-      </p>
-      <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-12">
-        How I work.
-      </h2>
-
+    <Section id="principles" subtitle="principles" title="How I work.">
       <ol className="space-y-8">
         {principles.map((p, i) => (
           <li key={p.title} className="grid grid-cols-[3rem_1fr] gap-4">
@@ -53,6 +44,6 @@ export function Principles() {
           </li>
         ))}
       </ol>
-    </section>
+    </Section>
   );
 }

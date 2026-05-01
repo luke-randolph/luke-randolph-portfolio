@@ -3,6 +3,7 @@ import { About } from "./components/About";
 import { Work } from "./components/Work";
 import { Principles } from "./components/Principles";
 import { SideNav } from "./components/SideNav";
+import { BottomNav } from "./components/BottomNav";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         Skip to main content
       </a>
       <SideNav />
+      <BottomNav />
       <main id="main" className="relative">
         <Hero />
         <About />

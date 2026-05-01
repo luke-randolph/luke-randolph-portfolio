@@ -9,12 +9,12 @@ const sections = [
   { id: "principles", label: "principles" },
 ];
 
-export function SideNav() {
+export function BottomNav() {
   const [active, setActive] = useState("hero");
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     let frame = 0;
-
     const compute = () => {
       frame = 0;
       let current = sections[0].id;
@@ -29,13 +29,12 @@ export function SideNav() {
         }
       }
       setActive(current);
+      setVisible(window.scrollY > 80);
     };
-
     const onScroll = () => {
       if (frame) return;
       frame = requestAnimationFrame(compute);
     };
-
     compute();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -49,40 +48,27 @@ export function SideNav() {
   return (
     <nav
       aria-label="Page sections"
-      className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden xl:block"
+      aria-hidden={!visible}
+      className={`fixed bottom-3 left-3 right-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 xl:hidden ${
+        visible
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none translate-y-4 opacity-0"
+      }`}
     >
-      <ul className="flex flex-col gap-5">
+      <ul className="flex items-stretch justify-between gap-1">
         {sections.map(({ id, label }) => {
           const isActive = active === id;
           return (
-            <li key={id}>
+            <li key={id} className="flex-1">
               <a
                 href={`#${id}`}
-                aria-label={`Jump to ${label} section`}
                 aria-current={isActive ? "true" : undefined}
-                className="group flex items-center gap-3 font-mono text-xs uppercase tracking-wider"
+                tabIndex={visible ? 0 : -1}
+                className={`flex items-center justify-center px-1 py-2.5 font-mono text-[11px] uppercase tracking-wider transition-colors ${
+                  isActive ? "text-cyan" : "text-fg-muted hover:text-cyan"
+                }`}
               >
-                <span
-                  aria-hidden="true"
-                  className="order-1 flex w-10 justify-start"
-                >
-                  <span
-                    className={`block h-px transition-all duration-200 ${
-                      isActive
-                        ? "w-10 bg-cyan shadow-[0_0_8px_rgba(255,43,214,0.7)]"
-                        : "w-5 bg-fg-muted/50 group-hover:w-8 group-hover:bg-cyan/70"
-                    }`}
-                  />
-                </span>
-                <span
-                  className={`order-2 transition-opacity duration-200 ${
-                    isActive
-                      ? "text-cyan opacity-100"
-                      : "text-fg-muted opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
-                  }`}
-                >
-                  {label}
-                </span>
+                {label}
               </a>
             </li>
           );

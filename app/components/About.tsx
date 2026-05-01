@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { Section } from "./Section";
+
 const stack = {
   Frontend: [
     "TypeScript",
@@ -13,61 +16,54 @@ const stack = {
     "Express.js",
     "FastAPI",
     "PHP / Laravel",
+    "SQL",
     "Postgres",
     "Drizzle",
     "Jest",
   ],
   "Tooling / Integrations": [
+    "Ci/CD",
+    "Git + Github Actions",
     "Stripe",
     "Sanity CMS",
     "Playwright",
     "Cypress",
     "Storybook",
     "Vercel",
-    "Ci/CD",
-    "Git + Github Actions",
     "Wordpress",
   ],
 };
 
 export function About() {
   return (
-    <section
-      id="about"
-      className="relative py-32 px-6 sm:px-10 max-w-5xl mx-auto scroll-mt-16"
-    >
-      <p className="font-mono text-sm text-cyan mb-3 tracking-wider">
-        <span className="text-fg-muted">{"// "}</span>
-        about
-      </p>
-      <h2 className="font-mono text-3xl sm:text-4xl font-bold mb-12">
-        Who I am.
-      </h2>
-
+    <Section id="about" subtitle="about" title="Who I am.">
       <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start">
-        <div className="relative aspect-square w-48 md:w-full neon-border rounded-sm overflow-hidden bg-bg-elev">
-          <div className="absolute inset-0 flex items-center justify-center font-mono text-xs text-fg-muted">
-            [headshot]
-          </div>
+        <div className="relative aspect-square w-56 md:w-full neon-border rounded-sm overflow-hidden bg-bg-elev">
+          <Image
+            src="/headshot.jpg"
+            alt="Luke Randolph"
+            fill
+            sizes="(min-width: 768px) 200px, 192px"
+            className="object-cover"
+            priority
+          />
         </div>
 
         <div className="space-y-5 text-fg/90 leading-relaxed text-lg">
           <p>
-            I&apos;m a full-stack developer with over six years of experience
-            shipping production software. I move swiftly across the stack — from
-            frontend to backend to the infrastructure that holds it all
-            together.
+            I&apos;m a web dev with over 6 years of experience shipping
+            production software. I move swiftly from frontend to backend to the
+            infrastructure that glues it all together!
           </p>
           <p>
-            Good software is a balance between shipping fast and shipping
-            carefully. My workflow utilizes modern AI tools — to move quickly,
-            but is backed by a deep understanding of fundamentals and best
-            practices. I am committed to thorough testing and quality.
+            My workflow utilizes modern AI tools, but is backed by a deep
+            understanding of fundamentals and best practices. I am committed to
+            thorough testing and quality.
           </p>
           <p>
             Outside of code: I&apos;m usually playing music, painting,
-            designing, video editing, exercising or spending time with my fiance
-            and my 3 cats ₍^..^₎⟆
+            designing, video editing, exercising or spending time with my
+            fiancée + my 3 cats ₍^..^₎⟆
           </p>
         </div>
       </div>
@@ -82,7 +78,7 @@ export function About() {
           Technologies I&apos;ve worked with. Anything not on this list is just
           something I look forward to learning in the future!
         </p>
-        <dl className="space-y-4">
+        <dl className="space-y-6">
           {Object.entries(stack).map(([area, items]) => (
             <div
               key={area}
@@ -107,6 +103,6 @@ export function About() {
           ))}
         </dl>
       </div>
-    </section>
+    </Section>
   );
 }
