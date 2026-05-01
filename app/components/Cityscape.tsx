@@ -84,15 +84,15 @@ const frontSlots: Slot[] = [
   { kind: "space", w: 5 },
   { kind: "building", w: 96, h: 80, lift: 10, fade: 60 },
   { kind: "space", w: 30 },
-  { kind: "building", w: 48, h: 160, lift: 4, fade: 48 },
+  { kind: "building", w: 48, h: 160, lift: 5, fade: 48 },
   { kind: "space", w: 40 },
-  { kind: "building", w: 80, h: 100, lift: 0, fade: 55 },
-  { kind: "space", w: 5 },
-  { kind: "building", w: 100, h: 70, lift: 20, fade: 65 },
-  { kind: "space", w: 50 },
-  { kind: "building", w: 88, h: 110, lift: 11, fade: 58 },
-  { kind: "space", w: 35 },
-  { kind: "building", w: 72, h: 90, lift: 2, fade: 50 },
+  { kind: "building", w: 100, h: 70, lift: 0, fade: 65 },
+  { kind: "space", w: 55 },
+  { kind: "building", w: 88, h: 110, lift: 5, fade: 58 },
+  { kind: "space", w: 10 },
+  { kind: "building", w: 70, h: 100, lift: 40, fade: 55 },
+  { kind: "space", w: 40 },
+  { kind: "building", w: 60, h: 90, lift: 2, fade: 50 },
 ];
 
 // Rows in z-order, back to front. Index 0 sits deepest.
@@ -134,7 +134,7 @@ const rows: RowConfig[] = [
     gapClass: "gap-1",
     fillRgba: "rgba(10,10,15,0.97)",
     parallaxY: 0.0006,
-    scaleRate: 0.07,
+    scaleRate: 0.1,
     baseLift: 0,
   },
 ];
@@ -262,10 +262,8 @@ export function Cityscape() {
     const update = () => {
       frame = 0;
       const y = window.scrollY;
-      const docMax =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress =
-        docMax > 0 ? Math.min(1, Math.max(0, y / docMax)) : 0;
+      const docMax = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docMax > 0 ? Math.min(1, Math.max(0, y / docMax)) : 0;
 
       if (!reduce) {
         rows.forEach((row, i) => {
