@@ -11,7 +11,7 @@ const principles = [
   },
   {
     title: "Accessibility matters",
-    body: "Keyboard navigation, screen reader compatibility, visible focus, proper color contrast even in sunlight etc. A site that only works for the median user is broken — it just hasn't been measured yet.",
+    body: "Keyboard navigation, screen reader compatibility, visible focus, proper color contrast etc. A site that only works for the median user is broken — it just hasn't been measured yet.",
   },
   {
     title: "Leave it better than you found it",
