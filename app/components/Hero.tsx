@@ -21,8 +21,8 @@ export function Hero() {
         I build resilient, accessible web applications:
       </p>
       <ul className="list-disc list-inside">
-        <li>UIs that look good and function quickly on all devices</li>
-        <li>APIs and data layers that are reliable and efficient</li>
+        <li>UIs that are vibrant and fast on all devices</li>
+        <li>APIs and data layers that are efficient and secure</li>
       </ul>
     </section>
   );

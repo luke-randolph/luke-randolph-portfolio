@@ -51,9 +51,9 @@ export function About() {
 
         <div className="space-y-5 text-fg/90 leading-relaxed text-lg">
           <p>
-            I&apos;m a web dev with over 6 years of experience shipping
-            production software. I move swiftly from frontend to backend to the
-            infrastructure that glues it all together!
+            I&apos;m a web developer with over 6 years of experience shipping
+            production software. I move swiftly from frontend, to backend, to
+            the infrastructure that glues it all together!
           </p>
           <p>
             My workflow utilizes modern AI tools, but is backed by a deep

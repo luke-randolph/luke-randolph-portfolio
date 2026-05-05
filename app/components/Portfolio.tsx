@@ -12,7 +12,7 @@ const projects = [
       "Postgres / Drizzle",
       "Better-auth",
       "Stripe",
-      "Sanity",
+      "Sanity CMS",
     ],
   },
   {
@@ -24,10 +24,10 @@ const projects = [
   },
 ];
 
-export function Work() {
+export function Portfolio() {
   return (
     <Section
-      id="work"
+      id="portfolio"
       subtitle="portfolio"
       title="Selected works."
       description="These apps are built to explore ideas/tools + demonstrate my skills (not live products serving real customers)."
