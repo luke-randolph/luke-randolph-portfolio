@@ -17,6 +17,7 @@ const stack = {
     "FastAPI",
     "PHP / Laravel",
     "SQL",
+    "SQLite",
     "Postgres",
     "Drizzle",
     "Jest",

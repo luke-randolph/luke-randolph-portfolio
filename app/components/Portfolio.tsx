@@ -20,7 +20,14 @@ const projects = [
     href: "https://dungeon-tools.luke-randolph.com",
     description:
       "A toolkit for Dungeons and Dragons (role playing game) — spell lists, dice rolls, and AI chat. This is a web preview of the native app.",
-    tags: ["Expo", "React Native", "Turbo"],
+    tags: [
+      "Expo",
+      "React Native",
+      "Turbo",
+      "SQLite",
+      "Vercel AI SDK",
+      "Gemini",
+    ],
   },
 ];
 
