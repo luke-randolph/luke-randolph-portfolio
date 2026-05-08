@@ -23,7 +23,7 @@ const stack = {
     "Jest",
   ],
   "Tooling / Integrations": [
-    "Ci/CD",
+    "CI/CD",
     "Git + Github Actions",
     "Stripe",
     "Sanity CMS",

@@ -5,7 +5,7 @@ const projects = [
   {
     title: "Eye Creatures Merch",
     href: "https://eye-creatures-merch.vercel.app",
-    description: "A full-stack e-commerce site for a selling band merch",
+    description: "A full-stack e-commerce site for selling band merch",
     tags: [
       "SvelteKit",
       "TypeScript",

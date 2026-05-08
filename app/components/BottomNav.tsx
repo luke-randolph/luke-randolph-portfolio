@@ -7,6 +7,7 @@ const sections = [
   { id: "about", label: "about" },
   { id: "portfolio", label: "portfolio" },
   { id: "principles", label: "principles" },
+  { id: "contact", label: "contact" },
 ];
 
 export function BottomNav() {
