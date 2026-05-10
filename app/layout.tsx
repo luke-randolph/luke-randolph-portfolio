@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ScanlineGrid } from "./components/ScanlineGrid";
 import { Cityscape } from "./components/Cityscape";
+import { cn } from "./lib/cn";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -44,7 +45,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={cn(
+        inter.variable,
+        jetbrainsMono.variable,
+        "h-full antialiased",
+      )}
     >
       <body className="relative min-h-full bg-bg text-fg font-sans">
         <div

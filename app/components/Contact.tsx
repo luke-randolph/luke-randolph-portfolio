@@ -23,7 +23,12 @@ const links = [
 
 export function Contact() {
   return (
-    <Section id="contact" subtitle="contact" title="Get in touch.">
+    <Section
+      id="contact"
+      subtitle="contact"
+      title="Get in touch:"
+      className="min-h-screen lg:min-h-[50vh] flex flex-col justify-center"
+    >
       <ul className="space-y-3">
         {links.map(({ label, value, href, external }) => (
           <li key={label}>

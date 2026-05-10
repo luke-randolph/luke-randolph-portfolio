@@ -36,7 +36,7 @@ export function Portfolio() {
     <Section
       id="portfolio"
       subtitle="portfolio"
-      title="Selected works."
+      title="Selected works:"
       description="These apps are built to explore ideas/tools + demonstrate my skills (not live products serving real customers)."
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

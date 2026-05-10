@@ -37,7 +37,7 @@ const stack = {
 
 export function About() {
   return (
-    <Section id="about" subtitle="about" title="Who I am.">
+    <Section id="about" subtitle="about" title="Who I am:">
       <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start">
         <div className="relative aspect-square w-56 md:w-full neon-border rounded-sm overflow-hidden bg-bg-elev">
           <Image

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { cn } from "../lib/cn";
 
 const sections = [
   { id: "hero", label: "intro" },
@@ -18,6 +19,13 @@ export function SideNav() {
 
     const compute = () => {
       frame = 0;
+      const scrollBottom = window.innerHeight + window.scrollY;
+      const nearBottom =
+        scrollBottom >= document.documentElement.scrollHeight - 100;
+      if (nearBottom) {
+        setActive(sections[sections.length - 1].id);
+        return;
+      }
       let current = sections[0].id;
       let bestDistance = Infinity;
       for (const { id } of sections) {
@@ -68,19 +76,21 @@ export function SideNav() {
                   className="order-1 flex w-10 justify-start"
                 >
                   <span
-                    className={`block h-px transition-all duration-200 ${
+                    className={cn(
+                      "block h-px transition-all duration-200",
                       isActive
                         ? "w-10 bg-cyan shadow-[0_0_8px_rgba(255,43,214,0.7)]"
-                        : "w-5 bg-fg-muted/50 group-hover:w-8 group-hover:bg-cyan/70"
-                    }`}
+                        : "w-5 bg-fg-muted/50 group-hover:w-8 group-hover:bg-cyan/70",
+                    )}
                   />
                 </span>
                 <span
-                  className={`order-2 transition-opacity duration-200 ${
+                  className={cn(
+                    "order-2 transition-opacity duration-200",
                     isActive
                       ? "text-cyan opacity-100"
-                      : "text-fg-muted opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
-                  }`}
+                      : "text-fg-muted opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100",
+                  )}
                 >
                   {label}
                 </span>

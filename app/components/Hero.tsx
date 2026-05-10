@@ -17,10 +17,10 @@ export function Hero() {
         <span className="ml-1 inline-block w-2.5 h-5 bg-cyan animate-pulse align-middle" />
       </p>
 
-      <p className="mt-6 max-w-xl text-lg text-fg/90 leading-relaxed">
+      <p className="mt-6 max-w-xl text-lg text-cyan leading-relaxed">
         I build resilient, accessible web applications:
       </p>
-      <ul className="list-disc list-inside">
+      <ul className="list-disc list-inside text-fg/90">
         <li>UIs that are vibrant and fast on all devices</li>
         <li>APIs and data layers that are efficient and secure</li>
       </ul>

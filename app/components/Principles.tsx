@@ -19,13 +19,18 @@ const principles = [
   },
   {
     title: "Ship the thing",
-    body: "Perfectionism has its limitations, though. Businesses need results. Shipping and iterating is the key to consistent results and improvement.",
+    body: "Perfectionism has its limitations; businesses need results. Shipping and iterating is the key to consistent results and improvement.",
   },
 ];
 
 export function Principles() {
   return (
-    <Section id="principles" subtitle="principles" title="How I work.">
+    <Section
+      id="principles"
+      subtitle="principles"
+      shortSubtitle="ethos"
+      title="How I work:"
+    >
       <ol className="space-y-8">
         {principles.map((p, i) => (
           <li key={p.title} className="grid grid-cols-[3rem_1fr] gap-4">
@@ -39,7 +44,7 @@ export function Principles() {
               <h3 className="font-mono text-lg font-semibold text-fg mb-2">
                 {p.title}
               </h3>
-              <p className="text-fg/80 leading-relaxed">{p.body}</p>
+              <p className="text-fg-muted leading-relaxed">{p.body}</p>
             </div>
           </li>
         ))}

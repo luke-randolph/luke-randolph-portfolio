@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useRef, type Ref } from "react";
 import { SmokeLayer } from "./SmokeLayer";
+import { cn } from "../lib/cn";
 
 type Slot =
   | { kind: "building"; w: number; h: number; lift: number; fade: number }
@@ -210,7 +211,11 @@ function Row({
     <div
       ref={rowRef}
       style={{ bottom: config.bottom }}
-      className={`absolute left-0 flex items-end origin-bottom-left will-change-transform ${config.gapClass} ${config.opacityClass}`}
+      className={cn(
+        "absolute left-0 flex items-end origin-bottom-left will-change-transform",
+        config.gapClass,
+        config.opacityClass,
+      )}
     >
       {config.slots.map((slot, i) => (
         <SlotItem key={i} slot={slot} fillRgba={config.fillRgba} />
@@ -232,7 +237,7 @@ function SmokeBand({
     <div
       ref={wrapperRef}
       style={{ bottom: config.bottom }}
-      className="absolute left-[-30px] will-change-transform"
+      className="absolute left-7.5 will-change-transform"
     >
       <SmokeLayer
         ref={smokeRef}
@@ -242,7 +247,7 @@ function SmokeBand({
         rgb={config.rgb}
         width={config.width}
         height={config.height}
-        className={`block ${config.driftClass}`}
+        className={cn("block", config.driftClass)}
       />
     </div>
   );

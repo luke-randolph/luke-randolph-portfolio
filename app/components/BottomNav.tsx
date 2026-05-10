@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { cn } from "../lib/cn";
 
-const sections = [
+const sections: { id: string; label: string; shortLabel?: string }[] = [
   { id: "hero", label: "intro" },
   { id: "about", label: "about" },
-  { id: "portfolio", label: "portfolio" },
-  { id: "principles", label: "principles" },
+  { id: "portfolio", label: "portfolio", shortLabel: "work" },
+  { id: "principles", label: "principles", shortLabel: "ethos" },
   { id: "contact", label: "contact" },
 ];
 
@@ -50,26 +51,36 @@ export function BottomNav() {
     <nav
       aria-label="Page sections"
       aria-hidden={!visible}
-      className={`fixed bottom-3 left-3 right-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 xl:hidden ${
+      className={cn(
+        "fixed bottom-3 left-3 right-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 xl:hidden",
         visible
           ? "translate-y-0 opacity-100"
-          : "pointer-events-none translate-y-4 opacity-0"
-      }`}
+          : "pointer-events-none translate-y-4 opacity-0",
+      )}
     >
       <ul className="flex items-stretch justify-between gap-1">
-        {sections.map(({ id, label }) => {
+        {sections.map(({ id, label, shortLabel }) => {
           const isActive = active === id;
           return (
             <li key={id} className="flex-1">
               <a
                 href={`#${id}`}
+                aria-label={`Jump to ${label} section`}
                 aria-current={isActive ? "true" : undefined}
                 tabIndex={visible ? 0 : -1}
-                className={`flex items-center justify-center px-1 py-2.5 font-mono text-[11px] uppercase tracking-wider transition-colors ${
-                  isActive ? "text-cyan" : "text-fg-muted hover:text-cyan"
-                }`}
+                className={cn(
+                  "flex items-center justify-center px-1 py-2.5 font-mono text-[11px] uppercase tracking-wider transition-colors",
+                  isActive ? "text-cyan" : "text-fg-muted hover:text-cyan",
+                )}
               >
-                {label}
+                {shortLabel ? (
+                  <>
+                    <span className="min-[400px]:hidden">{shortLabel}</span>
+                    <span className="hidden min-[400px]:inline">{label}</span>
+                  </>
+                ) : (
+                  label
+                )}
               </a>
             </li>
           );
