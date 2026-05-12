@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { CatsPopover } from "./CatsPopover";
 import { Section } from "./Section";
 
 const stack = {
@@ -10,6 +11,10 @@ const stack = {
     "Flutter",
     "Vue.js",
     "Tailwind",
+    "Cypress",
+    "Storybook",
+    "Playwright",
+    "Vitest",
   ],
   Backend: [
     "Node.js",
@@ -20,17 +25,17 @@ const stack = {
     "SQLite",
     "Postgres",
     "Drizzle",
-    "Jest",
   ],
   "Tooling / Integrations": [
     "CI/CD",
     "Git + Github Actions",
+    "Claude Code",
+    "Gemini",
+    "Cursor",
+    "Jest",
     "Stripe",
+    "Hubspot CMS",
     "Sanity CMS",
-    "Playwright",
-    "Cypress",
-    "Storybook",
-    "Vercel",
     "Wordpress",
   ],
 };
@@ -39,32 +44,48 @@ export function About() {
   return (
     <Section id="about" subtitle="about" title="Who I am:">
       <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start">
-        <div className="relative aspect-square w-56 md:w-full neon-border rounded-sm overflow-hidden bg-bg-elev">
+        <div className="group relative aspect-square w-56 md:w-full neon-border rounded-sm overflow-hidden bg-bg-elev">
           <Image
             src="/headshot.jpg"
             alt="Luke Randolph"
             fill
             sizes="(min-width: 768px) 200px, 192px"
-            className="object-cover"
+            className="object-cover group-hover:animate-headshot-base"
             priority
+          />
+          <Image
+            src="/headshot-glitch-1.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(min-width: 768px) 200px, 192px"
+            className="object-cover opacity-0 group-hover:animate-headshot-glitch-1"
+          />
+          <Image
+            src="/headshot-glitch-2.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            sizes="(min-width: 768px) 200px, 192px"
+            className="object-cover opacity-0 group-hover:animate-headshot-glitch-2"
           />
         </div>
 
-        <div className="space-y-5 text-fg/90 leading-relaxed text-lg">
+        <div className="relative space-y-5 text-fg/90 leading-relaxed text-lg">
           <p>
-            I&apos;m a web developer with over 6 years of experience shipping
-            production software. I move swiftly from frontend, to backend, to
-            the infrastructure that glues it all together!
+            I&apos;m a developer with over 6 years of experience working
+            full-stack with web and mobile apps. I have a passion for learning
+            and creating!
           </p>
           <p>
-            My workflow utilizes modern AI tools, but is backed by a deep
+            I utilize the power of agentic coding tools, but I also have a deep
             understanding of fundamentals and best practices. I am committed to
-            thorough testing and quality.
+            quality through both manual and automated testing.
           </p>
           <p>
             Outside of code: I&apos;m usually playing music, painting,
             designing, video editing, exercising or spending time with my
-            fiancée + my 3 cats ₍^..^₎⟆
+            fiancée + <CatsPopover />
           </p>
         </div>
       </div>
@@ -79,7 +100,7 @@ export function About() {
           Technologies I&apos;ve worked with. Anything not on this list is just
           something I look forward to learning in the future!
         </p>
-        <dl className="space-y-6">
+        <dl className="space-y-8">
           {Object.entries(stack).map(([area, items]) => (
             <div
               key={area}

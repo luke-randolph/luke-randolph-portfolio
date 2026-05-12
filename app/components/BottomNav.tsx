@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { cn } from "../lib/cn";
 
 const sections: { id: string; label: string; shortLabel?: string }[] = [
-  { id: "hero", label: "intro" },
+  { id: "intro", label: "intro" },
   { id: "about", label: "about" },
   { id: "portfolio", label: "portfolio", shortLabel: "work" },
   { id: "principles", label: "principles", shortLabel: "ethos" },
@@ -12,7 +12,7 @@ const sections: { id: string; label: string; shortLabel?: string }[] = [
 ];
 
 export function BottomNav() {
-  const [active, setActive] = useState("hero");
+  const [active, setActive] = useState("intro");
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ export function BottomNav() {
       aria-label="Page sections"
       aria-hidden={!visible}
       className={cn(
-        "fixed bottom-3 left-3 right-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 xl:hidden",
+        "fixed bottom-3 left-3 right-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 lg:hidden",
         visible
           ? "translate-y-0 opacity-100"
           : "pointer-events-none translate-y-4 opacity-0",

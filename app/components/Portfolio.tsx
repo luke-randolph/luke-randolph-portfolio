@@ -5,6 +5,7 @@ const projects = [
   {
     title: "Eye Creatures Merch",
     href: "https://eye-creatures-merch.vercel.app",
+    repoHref: "https://github.com/luke-randolph/eye-creatures-merch",
     description: "A full-stack e-commerce site for selling band merch",
     tags: [
       "SvelteKit",
@@ -18,8 +19,9 @@ const projects = [
   {
     title: "Dungeon Tools",
     href: "https://dungeon-tools.luke-randolph.com",
+    repoHref: "https://github.com/luke-randolph/dungeon-tools",
     description:
-      "A toolkit for Dungeons and Dragons (role playing game) — spell lists, dice rolls, and AI chat. This is a web preview of the native app.",
+      "A DnD toolkit including spell lists, feats, dice rolls, and a goblin-themed AI chat. This is a web preview of the native app.",
     tags: [
       "Expo",
       "React Native",
@@ -27,7 +29,15 @@ const projects = [
       "SQLite",
       "Vercel AI SDK",
       "Gemini",
+      "Vitest",
     ],
+  },
+  {
+    title: "Portfolio",
+    href: "https://luke-randolph.com",
+    repoHref: "https://github.com/luke-randolph/luke-randolph-portfolio",
+    description: "The site you're viewing right now :)",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind"],
   },
 ];
 

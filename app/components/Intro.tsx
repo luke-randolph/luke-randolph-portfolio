@@ -1,15 +1,13 @@
-import { GlitchText } from "./GlitchText";
-
-export function Hero() {
+export function Intro() {
   return (
     <section
-      id="hero"
+      id="intro"
       className="relative min-h-screen flex flex-col justify-center px-6 sm:px-10 max-w-5xl mx-auto scroll-mt-16"
     >
       <h1 className="font-mono text-5xl sm:text-7xl md:text-8xl font-bold leading-none tracking-tight">
-        <GlitchText>LUKE</GlitchText>
+        LUKE
         <br />
-        <GlitchText>RANDOLPH</GlitchText>
+        RANDOLPH
       </h1>
 
       <p className="mt-8 font-mono text-lg text-fg-muted">

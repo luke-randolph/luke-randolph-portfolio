@@ -1,4 +1,4 @@
-import { Hero } from "./components/Hero";
+import { Intro } from "./components/Intro";
 import { About } from "./components/About";
 import { Portfolio } from "./components/Portfolio";
 import { Principles } from "./components/Principles";
@@ -71,27 +71,16 @@ export default function Home() {
       <SideNav />
       <BottomNav />
       <main id="main" className="relative">
-        <Hero />
+        <Intro />
         <About />
         <Portfolio />
         <Principles />
         <Contact />
 
-        <footer className="border-t border-border/40 pt-10 pb-24 xl:pb-10 px-6 sm:px-10 max-w-5xl mx-auto flex items-center justify-between gap-4">
+        <footer className="border-t border-border/40 pt-10 pb-24 lg:pb-10 px-6 sm:px-10 max-w-5xl mx-auto flex items-center justify-between gap-4">
           <div className="font-mono text-fg-muted">
             <p className="text-sm">
               © {new Date().getFullYear()} Luke Randolph
-            </p>
-            <p className="text-xs mt-1">
-              Built with{" "}
-              <a
-                href="https://nextjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cyan transition-colors"
-              >
-                Next.js
-              </a>
             </p>
           </div>
           <ul className="flex items-center gap-4">
