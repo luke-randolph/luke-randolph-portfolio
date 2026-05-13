@@ -43,8 +43,8 @@ const stack = {
 export function About() {
   return (
     <Section id="about" subtitle="about" title="Who I am:">
-      <div className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-10 items-start">
-        <div className="group relative aspect-square w-56 md:w-full neon-border rounded-sm overflow-hidden bg-bg-elev">
+      <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[200px_1fr]">
+        <div className="group relative aspect-square w-56 overflow-hidden rounded-sm bg-bg-elev neon-border md:w-full">
           <Image
             src="/headshot.jpg"
             alt="Luke Randolph"
@@ -71,42 +71,40 @@ export function About() {
           />
         </div>
 
-        <div className="relative space-y-5 text-fg/90 leading-relaxed text-lg">
+        <div className="relative space-y-5 text-lg leading-relaxed text-fg/90">
           <p>
-            I&apos;m a developer with over 6 years of experience working
-            full-stack with web and mobile apps. I have a passion for learning
-            and creating!
+            I&apos;m a developer with over 6 years of experience working full-stack with web and
+            mobile apps. I have a passion for learning and creating!
           </p>
           <p>
-            I utilize the power of agentic coding tools, but I also have a deep
-            understanding of fundamentals and best practices. I am committed to
-            quality through both manual and automated testing.
+            I utilize the power of agentic coding tools, but I also have a deep understanding of
+            fundamentals and best practices. I am committed to quality through both manual and
+            automated testing.
           </p>
           <p>
-            Outside of code: I&apos;m usually playing music, painting,
-            designing, video editing, exercising or spending time with my
-            fiancée + <CatsPopover />
+            Outside of code: I&apos;m usually playing music, painting, designing, video editing,
+            exercising or spending time with my fiancée + <CatsPopover />
           </p>
         </div>
       </div>
 
       <div className="mt-16">
-        <p className="font-mono text-sm text-cyan mb-6 tracking-wider">
+        <p className="mb-6 font-mono text-sm tracking-wider text-cyan">
           <span className="text-fg-muted">{"// "}</span>
           stack
         </p>
 
-        <p className="text-fg-muted text-lg max-w-2xl mb-12">
-          Technologies I&apos;ve worked with. Anything not on this list is just
-          something I look forward to learning in the future!
+        <p className="mb-12 max-w-2xl text-lg text-fg-muted">
+          Technologies I&apos;ve worked with. Anything not on this list is just something I look
+          forward to learning in the future!
         </p>
         <dl className="space-y-8">
           {Object.entries(stack).map(([area, items]) => (
             <div
               key={area}
-              className="grid grid-cols-1 sm:grid-cols-[12rem_1fr] gap-3 sm:gap-6 items-start"
+              className="grid grid-cols-1 items-start gap-3 sm:grid-cols-[12rem_1fr] sm:gap-6"
             >
-              <dt className="font-mono text-sm text-fg-muted pt-1">
+              <dt className="pt-1 font-mono text-sm text-fg-muted">
                 <span className="text-cyan">{">"}</span> {area.toLowerCase()}
               </dt>
               <dd>
@@ -114,7 +112,7 @@ export function About() {
                   {items.map((item) => (
                     <li
                       key={item}
-                      className="font-mono text-xs text-cyan/80 border border-cyan/20 px-2 py-1 rounded-sm"
+                      className="rounded-sm border border-cyan/20 px-2 py-1 font-mono text-xs text-cyan/80"
                     >
                       {item}
                     </li>

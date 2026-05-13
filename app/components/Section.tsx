@@ -25,12 +25,12 @@ export function Section({
       id={id}
       aria-labelledby={title ? `${id}-heading` : undefined}
       className={cn(
-        "relative py-32 lg:py-42 px-6 sm:px-10 lg:pl-8 lg:pr-44 xl:pr-10 max-w-5xl mx-auto scroll-mt-16",
+        "relative mx-auto max-w-5xl scroll-mt-16 px-6 py-32 sm:px-10 lg:py-42 lg:pr-44 lg:pl-8 xl:pr-10",
         className,
       )}
     >
       {subtitle ? (
-        <p className="font-mono text-sm text-cyan mb-3 tracking-wider">
+        <p className="mb-3 font-mono text-sm tracking-wider text-cyan">
           <span className="text-fg-muted">{"// "}</span>
           {shortSubtitle ? (
             <>
@@ -45,18 +45,13 @@ export function Section({
       {title ? (
         <h2
           id={`${id}-heading`}
-          className={cn(
-            "font-mono text-3xl sm:text-4xl font-bold",
-            description ? "mb-4" : "mb-12",
-          )}
+          className={cn("font-mono text-3xl font-bold sm:text-4xl", description ? "mb-4" : "mb-12")}
         >
           {title}
         </h2>
       ) : null}
       {description ? (
-        <p className="text-sm text-fg-muted max-w-2xl mb-12 leading-relaxed">
-          {description}
-        </p>
+        <p className="mb-12 max-w-2xl text-sm leading-relaxed text-fg-muted">{description}</p>
       ) : null}
       {children}
     </section>

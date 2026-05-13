@@ -41,13 +41,13 @@ export function CatsPopover() {
         aria-label="Photos of my three cats"
         aria-hidden={!open}
         className={cn(
-          "absolute bottom-8 left-0 xl:left-auto xl:right-0 z-20 transition-opacity duration-200",
+          "absolute bottom-8 left-0 z-20 transition-opacity duration-200 xl:right-0 xl:left-auto",
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0 group-hover/cats:pointer-events-auto group-hover/cats:opacity-100",
         )}
       >
-        <span className="flex flex-col lg:flex-row gap-2 rounded-sm border-cyan/30 bg-bg-elev p-2 shadow-[0_0_40px_4px_rgba(0,240,255,0.28)]">
+        <span className="flex flex-col gap-2 rounded-sm border-cyan/30 bg-bg-elev p-2 shadow-[0_0_40px_4px_rgba(0,240,255,0.28)] lg:flex-row">
           {cats.map((c) => (
             <span
               key={c.name}

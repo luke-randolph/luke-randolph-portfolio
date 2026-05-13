@@ -25,26 +25,16 @@ const principles = [
 
 export function Principles() {
   return (
-    <Section
-      id="principles"
-      subtitle="principles"
-      shortSubtitle="ethos"
-      title="How I work:"
-    >
+    <Section id="principles" subtitle="principles" shortSubtitle="ethos" title="How I work:">
       <ol className="space-y-8">
         {principles.map((p, i) => (
           <li key={p.title} className="grid grid-cols-[3rem_1fr] gap-4">
-            <span
-              aria-hidden="true"
-              className="font-mono text-cyan text-sm pt-1.5"
-            >
+            <span aria-hidden="true" className="pt-1.5 font-mono text-sm text-cyan">
               {String(i + 1).padStart(2, "0")}
             </span>
             <div>
-              <h3 className="font-mono text-lg font-semibold text-fg mb-2">
-                {p.title}
-              </h3>
-              <p className="text-fg-muted leading-relaxed">{p.body}</p>
+              <h3 className="mb-2 font-mono text-lg font-semibold text-fg">{p.title}</h3>
+              <p className="leading-relaxed text-fg-muted">{p.body}</p>
             </div>
           </li>
         ))}

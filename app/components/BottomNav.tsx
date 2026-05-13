@@ -33,11 +33,9 @@ export function BottomNav() {
     <nav
       aria-label="Page sections"
       className={cn(
-        "fixed bottom-3 left-3 right-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 lg:hidden",
+        "fixed right-3 bottom-3 left-3 z-40 rounded-sm border border-border/40 bg-bg/70 px-2 py-1.5 backdrop-blur-md transition-all duration-300 lg:hidden",
         "focus-within:pointer-events-auto focus-within:translate-y-0 focus-within:opacity-100",
-        visible
-          ? "translate-y-0 opacity-100"
-          : "pointer-events-none translate-y-4 opacity-0",
+        visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0",
       )}
     >
       <ul className="flex items-stretch justify-between gap-1">
@@ -50,7 +48,7 @@ export function BottomNav() {
                 aria-label={`Jump to ${label} section`}
                 aria-current={isActive ? "location" : undefined}
                 className={cn(
-                  "flex items-center justify-center px-1 py-2.5 font-mono text-[11px] uppercase tracking-wider transition-colors",
+                  "flex items-center justify-center px-1 py-2.5 font-mono text-[11px] tracking-wider uppercase transition-colors",
                   isActive ? "text-cyan" : "text-fg-muted hover:text-cyan",
                 )}
               >

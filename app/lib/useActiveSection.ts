@@ -4,10 +4,7 @@ type Options = {
   withProgress?: boolean;
 };
 
-export function useActiveSection(
-  ids: readonly string[],
-  { withProgress = false }: Options = {},
-) {
+export function useActiveSection(ids: readonly string[], { withProgress = false }: Options = {}) {
   const [active, setActive] = useState(ids[0] ?? "");
   const [progresses, setProgresses] = useState<Record<string, number>>({});
 
@@ -20,10 +17,7 @@ export function useActiveSection(
       frame = 0;
       const scrollY = window.scrollY;
       const viewportH = window.innerHeight;
-      const scrollMax = Math.max(
-        1,
-        document.documentElement.scrollHeight - viewportH,
-      );
+      const scrollMax = Math.max(1, document.documentElement.scrollHeight - viewportH);
       const offset = viewportH * 0.5;
 
       const starts = ids.map((id) => {

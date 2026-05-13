@@ -15,7 +15,7 @@ export function SideNav() {
   return (
     <nav
       aria-label="Page sections"
-      className="fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:block"
+      className="fixed top-1/2 right-6 z-40 hidden -translate-y-1/2 lg:block"
     >
       <ul className="flex flex-col gap-5">
         {sections.map(({ id, label }) => {
@@ -28,12 +28,9 @@ export function SideNav() {
                 href={`#${id}`}
                 aria-label={`Jump to ${label} section`}
                 aria-current={isActive ? "location" : undefined}
-                className="group flex items-center gap-3 font-mono text-xs uppercase tracking-wider"
+                className="group flex items-center gap-3 font-mono text-xs tracking-wider uppercase"
               >
-                <span
-                  aria-hidden="true"
-                  className="order-1 flex w-10 justify-start"
-                >
+                <span aria-hidden="true" className="order-1 flex w-10 justify-start">
                   <span
                     className={cn(
                       "block h-px transition-[width,background-color,box-shadow] duration-150 ease-out",
@@ -47,9 +44,7 @@ export function SideNav() {
                 <span
                   className={cn(
                     "order-2 transition-colors duration-200",
-                    isActive
-                      ? "text-cyan"
-                      : "text-fg-muted group-hover:text-cyan",
+                    isActive ? "text-cyan" : "text-fg-muted group-hover:text-cyan",
                   )}
                 >
                   {label}

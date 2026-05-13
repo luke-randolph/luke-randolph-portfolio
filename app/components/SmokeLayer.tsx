@@ -37,10 +37,8 @@ export function SmokeLayer({
         width: `${width}px`,
         height: `${height}px`,
         opacity: 0,
-        maskImage:
-          "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+        maskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
+        WebkitMaskImage: "linear-gradient(to right, black 0%, black 65%, transparent 100%)",
       }}
     >
       <defs>
@@ -69,12 +67,7 @@ export function SmokeLayer({
           <rect width="1600" height={height} fill={`url(#${gradId})`} />
         </mask>
       </defs>
-      <rect
-        width="1600"
-        height={height}
-        filter={`url(#${filterId})`}
-        mask={`url(#${maskId})`}
-      />
+      <rect width="1600" height={height} filter={`url(#${filterId})`} mask={`url(#${maskId})`} />
     </svg>
   );
 }

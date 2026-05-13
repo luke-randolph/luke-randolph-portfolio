@@ -7,14 +7,7 @@ const projects = [
     href: "https://eye-creatures-merch.vercel.app",
     repoHref: "https://github.com/luke-randolph/eye-creatures-merch",
     description: "A full-stack e-commerce site for selling band merch",
-    tags: [
-      "SvelteKit",
-      "TypeScript",
-      "Postgres / Drizzle",
-      "Better-auth",
-      "Stripe",
-      "Sanity CMS",
-    ],
+    tags: ["SvelteKit", "TypeScript", "Postgres / Drizzle", "Better-auth", "Stripe", "Sanity CMS"],
   },
   {
     title: "Dungeon Tools",
@@ -22,15 +15,7 @@ const projects = [
     repoHref: "https://github.com/luke-randolph/dungeon-tools",
     description:
       "A DnD toolkit including spell lists, feats, dice rolls, and a goblin-themed AI chat. This is a web preview of the native app.",
-    tags: [
-      "Expo",
-      "React Native",
-      "Turbo",
-      "SQLite",
-      "Vercel AI SDK",
-      "Gemini",
-      "Vitest",
-    ],
+    tags: ["Expo", "React Native", "Turbo", "SQLite", "Vercel AI SDK", "Gemini", "Vitest"],
   },
   {
     title: "Portfolio",
@@ -49,7 +34,7 @@ export function Portfolio() {
       title="Selected works:"
       description="These apps are built to explore ideas/tools + demonstrate my skills (not live products serving real customers)."
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <NeonCard key={project.title} {...project} />
         ))}

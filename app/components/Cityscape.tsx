@@ -195,19 +195,13 @@ function SlotItem({ slot, fillRgba }: { slot: Slot; fillRgba: string }) {
   );
 }
 
-function Row({
-  config,
-  rowRef,
-}: {
-  config: RowConfig;
-  rowRef: Ref<HTMLDivElement>;
-}) {
+function Row({ config, rowRef }: { config: RowConfig; rowRef: Ref<HTMLDivElement> }) {
   return (
     <div
       ref={rowRef}
       style={{ bottom: config.bottom }}
       className={cn(
-        "absolute left-0 flex items-end origin-bottom-left will-change-transform",
+        "absolute left-0 flex origin-bottom-left items-end will-change-transform",
         config.gapClass,
         config.opacityClass,
       )}
@@ -254,9 +248,7 @@ export function Cityscape() {
   const smokeRefs = useRef<(SVGSVGElement | null)[]>([]);
 
   useEffect(() => {
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let frame = 0;
 
     const update = () => {
@@ -283,9 +275,7 @@ export function Cityscape() {
       smokes.forEach((smoke, i) => {
         const el = smokeRefs.current[i];
         if (!el) return;
-        el.style.opacity = String(
-          smoke.opacityBase + progress * smoke.opacityRange,
-        );
+        el.style.opacity = String(smoke.opacityBase + progress * smoke.opacityRange);
       });
     };
 
@@ -305,10 +295,7 @@ export function Cityscape() {
   }, []);
 
   return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-[5] overflow-hidden"
-    >
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-[5] overflow-hidden">
       {rows.map((row, i) => (
         <Fragment key={i}>
           <Row

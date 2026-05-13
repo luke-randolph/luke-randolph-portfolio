@@ -17,8 +17,8 @@
   --animate-neon-flicker-magenta: neon-flicker-magenta 0.55s linear forwards;
   --animate-neon-blink-once: neon-blink-once 0.45s linear forwards;
   --animate-headshot-base: headshot-base-off 0.15s linear 1;
-  --animate-headshot-glitch-1: headshot-glitch-on 0.10s linear 1;
-  --animate-headshot-glitch-2: headshot-glitch-on 0.18s 0.10s linear 1;
+  --animate-headshot-glitch-1: headshot-glitch-on 0.1s linear 1;
+  --animate-headshot-glitch-2: headshot-glitch-on 0.18s 0.1s linear 1;
 }
 
 ::selection {
@@ -178,4 +178,3 @@ html {
     0 0 0 1px rgba(255, 43, 214, 0.4),
     0 0 32px -4px rgba(255, 43, 214, 0.45);
 }
-
