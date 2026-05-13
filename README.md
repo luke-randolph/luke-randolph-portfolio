@@ -2,7 +2,7 @@
 
 Personal portfolio for Luke Randolph — full-stack web developer.
 
-Built with Next.js 16 (App Router, Turbopack), React 19, Tailwind CSS v4, and Framer Motion. Deployed on Vercel.
+Built with Next.js 16 (App Router, Turbopack), React 19, and Tailwind CSS v4. Deployed on Vercel.
 
 ## Develop
 

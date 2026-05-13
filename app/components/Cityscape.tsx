@@ -23,7 +23,6 @@ type SmokeConfig = {
   bottom: number;
   width: number;
   height: number;
-  driftClass: string;
   parallaxY: number;
   opacityBase: number;
   opacityRange: number;
@@ -49,14 +48,13 @@ const backSlots: Slot[] = [
   { kind: "space", w: 5 },
   { kind: "building", w: 22, h: 220, lift: 30, fade: 38 },
   { kind: "space", w: 40 },
-  { kind: "building", w: 44, h: 160, lift: 5, fade: 30 },
+  { kind: "building", w: 44, h: 160, lift: -20, fade: 20 },
   { kind: "building", w: 28, h: 260, lift: 35, fade: 40 },
   { kind: "space", w: 10 },
-  { kind: "building", w: 52, h: 170, lift: 60, fade: 34 },
-  { kind: "space", w: 50 },
-  { kind: "building", w: 30, h: 290, lift: 40, fade: 42 },
-  { kind: "building", w: 40, h: 200, lift: 15, fade: 32 },
-  { kind: "space", w: 50 },
+  { kind: "building", w: 52, h: 170, lift: 50, fade: 34 },
+  { kind: "space", w: 40 },
+  { kind: "building", w: 70, h: 180, lift: 20, fade: 32 },
+  { kind: "space", w: 40 },
   { kind: "building", w: 56, h: 180, lift: 0, fade: 28 },
   { kind: "space", w: 20 },
   { kind: "building", w: 36, h: 240, lift: 20, fade: 36 },
@@ -67,29 +65,29 @@ const backSlots: Slot[] = [
 
 const midSlots: Slot[] = [
   { kind: "space", w: 35 },
-  { kind: "building", w: 60, h: 130, lift: 40, fade: 44 },
+  { kind: "building", w: 60, h: 130, lift: 20, fade: 30 },
   { kind: "space", w: 55 },
-  { kind: "building", w: 80, h: 170, lift: 40, fade: 50 },
-  { kind: "space", w: 35 },
-  { kind: "building", w: 50, h: 100, lift: 10, fade: 40 },
-  { kind: "space", w: 25 },
+  { kind: "building", w: 80, h: 170, lift: 10, fade: 50 },
+  { kind: "space", w: 30 },
   { kind: "building", w: 25, h: 280, lift: 30, fade: 38 },
+  { kind: "space", w: 25 },
+  { kind: "building", w: 50, h: 100, lift: -25, fade: 30 },
   { kind: "space", w: 80 },
-  { kind: "building", w: 90, h: 160, lift: 40, fade: 46 },
-  { kind: "space", w: 60 },
-  { kind: "building", w: 70, h: 110, lift: 20, fade: 42 },
+  { kind: "building", w: 90, h: 160, lift: 10, fade: 46 },
+  { kind: "space", w: 70 },
+  { kind: "building", w: 80, h: 110, lift: 20, fade: 42 },
 ];
 
 const frontSlots: Slot[] = [
-  { kind: "building", w: 65, h: 120, lift: 0, fade: 50 },
-  { kind: "space", w: 5 },
-  { kind: "building", w: 96, h: 80, lift: 10, fade: 60 },
-  { kind: "space", w: 30 },
+  { kind: "building", w: 65, h: 130, lift: 10, fade: 30 },
+  { kind: "space", w: 18 },
+  { kind: "building", w: 110, h: 90, lift: 25, fade: 35 },
+  { kind: "space", w: 25 },
   { kind: "building", w: 48, h: 160, lift: 5, fade: 48 },
   { kind: "space", w: 40 },
-  { kind: "building", w: 100, h: 70, lift: 0, fade: 65 },
-  { kind: "space", w: 55 },
-  { kind: "building", w: 88, h: 110, lift: 5, fade: 58 },
+  { kind: "building", w: 90, h: 70, lift: 0, fade: 65 },
+  { kind: "space", w: 65 },
+  { kind: "building", w: 88, h: 110, lift: 5, fade: 40 },
   { kind: "space", w: 10 },
   { kind: "building", w: 70, h: 100, lift: 40, fade: 55 },
   { kind: "space", w: 40 },
@@ -100,21 +98,21 @@ const frontSlots: Slot[] = [
 const rows: RowConfig[] = [
   {
     slots: farBackSlots,
-    bottom: 220,
+    bottom: 210,
     opacityClass: "opacity-35",
     gapClass: "gap-px",
     fillRgba: "rgba(10,10,15,0.7)",
-    parallaxY: 0.08,
+    parallaxY: 0.04,
     scaleRate: 0.012,
     baseLift: 30,
   },
   {
     slots: backSlots,
-    bottom: 150,
+    bottom: 120,
     opacityClass: "opacity-50",
     gapClass: "gap-px",
     fillRgba: "rgba(10,10,15,0.85)",
-    parallaxY: 0.055,
+    parallaxY: 0.03,
     scaleRate: 0.025,
     baseLift: 0,
   },
@@ -124,7 +122,7 @@ const rows: RowConfig[] = [
     opacityClass: "opacity-75",
     gapClass: "gap-1",
     fillRgba: "rgba(10,10,15,0.92)",
-    parallaxY: 0.019,
+    parallaxY: 0.02,
     scaleRate: 0.045,
     baseLift: 0,
   },
@@ -143,13 +141,12 @@ const rows: RowConfig[] = [
 // Smoke bands sit in the gaps between rows. Index N renders between row N and row N+1.
 const smokes: SmokeConfig[] = [
   {
-    bottom: 180,
+    bottom: 160,
     width: 600,
     height: 260,
-    driftClass: "smoke-drift-c",
     parallaxY: 0.045,
-    opacityBase: 0.02,
-    opacityRange: 0.04,
+    opacityBase: 0.01,
+    opacityRange: 0.02,
     id: "top",
     seed: 17,
     baseFrequency: "0.009 0.018",
@@ -159,7 +156,6 @@ const smokes: SmokeConfig[] = [
     bottom: 120,
     width: 760,
     height: 280,
-    driftClass: "smoke-drift-a",
     parallaxY: 0.0225,
     opacityBase: 0.03,
     opacityRange: 0.05,
@@ -172,7 +168,6 @@ const smokes: SmokeConfig[] = [
     bottom: 0,
     width: 820,
     height: 180,
-    driftClass: "smoke-drift-b",
     parallaxY: 0.01125,
     opacityBase: 0.04,
     opacityRange: 0.08,
@@ -237,7 +232,7 @@ function SmokeBand({
     <div
       ref={wrapperRef}
       style={{ bottom: config.bottom }}
-      className="absolute left-7.5 will-change-transform"
+      className="absolute left-0 will-change-transform"
     >
       <SmokeLayer
         ref={smokeRef}
@@ -247,7 +242,7 @@ function SmokeBand({
         rgb={config.rgb}
         width={config.width}
         height={config.height}
-        className={cn("block", config.driftClass)}
+        className="block"
       />
     </div>
   );

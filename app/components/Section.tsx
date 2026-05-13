@@ -23,6 +23,7 @@ export function Section({
   return (
     <section
       id={id}
+      aria-labelledby={title ? `${id}-heading` : undefined}
       className={cn(
         "relative py-32 lg:py-42 px-6 sm:px-10 lg:pl-8 lg:pr-44 xl:pr-10 max-w-5xl mx-auto scroll-mt-16",
         className,
@@ -43,6 +44,7 @@ export function Section({
       ) : null}
       {title ? (
         <h2
+          id={`${id}-heading`}
           className={cn(
             "font-mono text-3xl sm:text-4xl font-bold",
             description ? "mb-4" : "mb-12",

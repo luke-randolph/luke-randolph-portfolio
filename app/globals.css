@@ -40,7 +40,6 @@ html {
   *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
   }
 }
 
@@ -180,44 +179,3 @@ html {
     0 0 32px -4px rgba(255, 43, 214, 0.45);
 }
 
-@keyframes smoke-drift-a {
-  0%,
-  100% {
-    transform: translate3d(-14px, 0, 0);
-  }
-  50% {
-    transform: translate3d(18px, 0, 0);
-  }
-}
-
-@keyframes smoke-drift-b {
-  0%,
-  100% {
-    transform: translate3d(20px, 0, 0);
-  }
-  50% {
-    transform: translate3d(-16px, 0, 0);
-  }
-}
-
-@keyframes smoke-drift-c {
-  0%,
-  100% {
-    transform: translate3d(-18px, 0, 0);
-  }
-  50% {
-    transform: translate3d(14px, 0, 0);
-  }
-}
-
-.smoke-drift-a {
-  animation: smoke-drift-a 34s ease-in-out infinite;
-}
-
-.smoke-drift-b {
-  animation: smoke-drift-b 40s ease-in-out infinite;
-}
-
-.smoke-drift-c {
-  animation: smoke-drift-c 46s ease-in-out infinite;
-}

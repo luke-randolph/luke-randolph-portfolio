@@ -1,73 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { sections, sectionIds } from "../lib/sections";
+import { useActiveSection } from "../lib/useActiveSection";
 import { cn } from "../lib/cn";
-
-const sections = [
-  { id: "intro", label: "intro" },
-  { id: "about", label: "about" },
-  { id: "portfolio", label: "portfolio" },
-  { id: "principles", label: "principles" },
-  { id: "contact", label: "contact" },
-];
 
 const MIN_WIDTH = 8;
 const MAX_WIDTH = 40;
 
 export function SideNav() {
-  const [active, setActive] = useState(sections[0].id);
-  const [progresses, setProgresses] = useState<Record<string, number>>({});
-
-  useEffect(() => {
-    let frame = 0;
-
-    const compute = () => {
-      frame = 0;
-      const scrollY = window.scrollY;
-      const viewportH = window.innerHeight;
-      const scrollMax = Math.max(
-        1,
-        document.documentElement.scrollHeight - viewportH,
-      );
-      const offset = viewportH * 0.5;
-
-      const starts = sections.map(({ id }) => {
-        const el = document.getElementById(id);
-        return el ? Math.max(0, el.offsetTop - offset) : 0;
-      });
-
-      const next: Record<string, number> = {};
-      let activeId = sections[0].id;
-
-      for (let i = 0; i < sections.length; i++) {
-        const start = starts[i];
-        const end = i + 1 < sections.length ? starts[i + 1] : scrollMax;
-        const range = Math.max(1, end - start);
-        next[sections[i].id] = Math.min(
-          1,
-          Math.max(0, (scrollY - start) / range),
-        );
-        if (scrollY >= start) activeId = sections[i].id;
-      }
-
-      setActive(activeId);
-      setProgresses(next);
-    };
-
-    const onScroll = () => {
-      if (frame) return;
-      frame = requestAnimationFrame(compute);
-    };
-
-    compute();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      if (frame) cancelAnimationFrame(frame);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
+  const { active, progresses } = useActiveSection(sectionIds, {
+    withProgress: true,
+  });
 
   return (
     <nav
@@ -84,7 +27,7 @@ export function SideNav() {
               <a
                 href={`#${id}`}
                 aria-label={`Jump to ${label} section`}
-                aria-current={isActive ? "true" : undefined}
+                aria-current={isActive ? "location" : undefined}
                 className="group flex items-center gap-3 font-mono text-xs uppercase tracking-wider"
               >
                 <span

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { cn } from "../lib/cn";
 
 const cats = [
@@ -13,6 +13,7 @@ const cats = [
 export function CatsPopover() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
+  const panelId = useId();
 
   useEffect(() => {
     if (!open) return;
@@ -24,27 +25,33 @@ export function CatsPopover() {
   }, [open]);
 
   return (
-    <span
-      ref={ref}
-      tabIndex={0}
-      onClick={() => setOpen((o) => !o)}
-      className="group/cats cursor-pointer text-cyan relative inline-block lg:static"
-    >
-      my 3 cats ₍^..^₎⟆
+    <span ref={ref} className="group/cats relative inline-block lg:static">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        aria-controls={panelId}
+        className="cursor-pointer text-cyan"
+      >
+        my 3 cats ₍^..^₎⟆
+      </button>
       <span
-        aria-hidden="true"
+        id={panelId}
+        role="group"
+        aria-label="Photos of my three cats"
+        aria-hidden={!open}
         className={cn(
           "absolute bottom-8 left-0 xl:left-auto xl:right-0 z-20 transition-opacity duration-200",
           open
             ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0 group-hover/cats:pointer-events-auto group-hover/cats:opacity-100 group-focus-visible/cats:pointer-events-auto group-focus-visible/cats:opacity-100",
+            : "pointer-events-none opacity-0 group-hover/cats:pointer-events-auto group-hover/cats:opacity-100",
         )}
       >
         <span className="flex flex-col lg:flex-row gap-2 rounded-sm border-cyan/30 bg-bg-elev p-2 shadow-[0_0_40px_4px_rgba(0,240,255,0.28)]">
           {cats.map((c) => (
             <span
               key={c.name}
-              className="relative block aspect-square w-[28vw] overflow-hidden rounded-sm sm:w-36 lg:w-unset"
+              className="relative block aspect-square w-[28vw] overflow-hidden rounded-sm sm:w-36"
             >
               <Image
                 src={c.src}
