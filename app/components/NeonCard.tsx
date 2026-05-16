@@ -1,4 +1,5 @@
 import { GitHubIcon } from "./icons";
+import { TagList } from "./TagList";
 
 type NeonCardProps = {
   href: string;
@@ -24,16 +25,7 @@ export function NeonCard({ href, title, description, tags, repoHref }: NeonCardP
         </a>
       </h3>
       <p className="mt-3 leading-relaxed text-fg-muted">{description}</p>
-      <ul className="mt-5 flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <li
-            key={tag}
-            className="rounded-sm border border-cyan/20 px-2 py-0.5 font-mono text-xs text-cyan/80"
-          >
-            {tag}
-          </li>
-        ))}
-      </ul>
+      <TagList items={tags} className="mt-5" />
       <div className="mt-auto flex items-end justify-between gap-4 pt-6">
         <a
           href={repoHref}

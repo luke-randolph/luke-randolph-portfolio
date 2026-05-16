@@ -1,24 +1,10 @@
+import { EMAIL, profileLinks } from "../lib/links";
 import { Section } from "./Section";
 
 const links = [
-  {
-    label: "email",
-    value: "lukerandolph116@gmail.com",
-    href: "mailto:lukerandolph116@gmail.com",
-    external: false,
-  },
-  {
-    label: "linkedin",
-    value: "Luke Randolph",
-    href: "https://www.linkedin.com/in/luke-randolph-1662241a0",
-    external: true,
-  },
-  {
-    label: "github",
-    value: "luke-randolph",
-    href: "https://github.com/luke-randolph",
-    external: true,
-  },
+  { label: "email", value: EMAIL, ...profileLinks.email },
+  { label: "linkedin", value: "Luke Randolph", ...profileLinks.linkedin },
+  { label: "github", value: "luke-randolph", ...profileLinks.github },
 ];
 
 export function Contact() {

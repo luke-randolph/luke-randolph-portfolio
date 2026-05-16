@@ -6,26 +6,12 @@ import { Contact } from "./components/Contact";
 import { SideNav } from "./components/SideNav";
 import { BottomNav } from "./components/BottomNav";
 import { GitHubIcon, LinkedInIcon, MailIcon } from "./components/icons";
+import { profileLinks } from "./lib/links";
 
 const socials = [
-  {
-    label: "Email Luke Randolph",
-    href: "mailto:lukerandolph116@gmail.com",
-    external: false,
-    Icon: MailIcon,
-  },
-  {
-    label: "Luke Randolph on LinkedIn",
-    href: "https://www.linkedin.com/in/luke-randolph-1662241a0",
-    external: true,
-    Icon: LinkedInIcon,
-  },
-  {
-    label: "Luke Randolph on GitHub",
-    href: "https://github.com/luke-randolph",
-    external: true,
-    Icon: GitHubIcon,
-  },
+  { label: "Email Luke Randolph", Icon: MailIcon, ...profileLinks.email },
+  { label: "Luke Randolph on LinkedIn", Icon: LinkedInIcon, ...profileLinks.linkedin },
+  { label: "Luke Randolph on GitHub", Icon: GitHubIcon, ...profileLinks.github },
 ];
 
 export default function Home() {
