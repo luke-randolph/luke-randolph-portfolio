@@ -19,6 +19,7 @@ const stack = {
   Backend: [
     "Node.js",
     "Express.js",
+    "Python",
     "FastAPI",
     "PHP / Laravel",
     "SQL",
@@ -32,6 +33,7 @@ const stack = {
     "Claude Code",
     "Gemini",
     "Cursor",
+    "Pytest",
     "Jest",
     "Stripe",
     "Hubspot CMS",
