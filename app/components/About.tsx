@@ -1,6 +1,7 @@
-import Image from "next/image";
 import { CatsPopover } from "./CatsPopover";
+import { Headshot } from "./Headshot";
 import { Section } from "./Section";
+import { TagList } from "./TagList";
 
 const stack = {
   Frontend: [
@@ -46,32 +47,7 @@ export function About() {
   return (
     <Section id="about" subtitle="about" title="Who I am:">
       <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[200px_1fr]">
-        <div className="group relative aspect-square w-56 overflow-hidden rounded-sm bg-bg-elev neon-border md:w-full">
-          <Image
-            src="/headshot.jpg"
-            alt="Luke Randolph"
-            fill
-            sizes="(min-width: 768px) 200px, 192px"
-            className="object-cover group-hover:animate-headshot-base"
-            priority
-          />
-          <Image
-            src="/headshot-glitch-1.png"
-            alt=""
-            aria-hidden="true"
-            fill
-            sizes="(min-width: 768px) 200px, 192px"
-            className="object-cover opacity-0 group-hover:animate-headshot-glitch-1"
-          />
-          <Image
-            src="/headshot-glitch-2.png"
-            alt=""
-            aria-hidden="true"
-            fill
-            sizes="(min-width: 768px) 200px, 192px"
-            className="object-cover opacity-0 group-hover:animate-headshot-glitch-2"
-          />
-        </div>
+        <Headshot />
 
         <div className="relative space-y-5 text-lg leading-relaxed text-fg/90">
           <p>
@@ -110,16 +86,7 @@ export function About() {
                 <span className="text-cyan">{">"}</span> {area.toLowerCase()}
               </dt>
               <dd>
-                <ul className="flex flex-wrap gap-2">
-                  {items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-sm border border-cyan/20 px-2 py-1 font-mono text-xs text-cyan/80"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <TagList items={items} />
               </dd>
             </div>
           ))}

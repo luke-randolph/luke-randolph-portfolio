@@ -34,7 +34,7 @@ export function Portfolio() {
       title="Selected works:"
       description="These apps are built to explore ideas/tools + demonstrate my skills (not live products serving real customers)."
     >
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project) => (
           <NeonCard key={project.title} {...project} />
         ))}
