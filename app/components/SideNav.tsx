@@ -33,7 +33,7 @@ export function SideNav() {
                 <span aria-hidden="true" className="order-1 flex w-10 justify-start">
                   <span
                     className={cn(
-                      "block h-px transition-[width,background-color,box-shadow] duration-150 ease-out",
+                      "block h-px transition-[background-color,box-shadow] duration-150 ease-out",
                       isActive
                         ? "bg-cyan shadow-[0_0_8px_rgba(255,43,214,0.7)]"
                         : "bg-fg-muted/50 group-hover:bg-cyan/70",
