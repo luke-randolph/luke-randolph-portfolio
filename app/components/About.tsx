@@ -45,7 +45,7 @@ const stack = {
 
 export function About() {
   return (
-    <Section id="about" subtitle="about" title="Who I am:">
+    <Section id="about" subtitle="about" title="Who I am:" className="pt-0 lg:pt-0">
       <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[200px_1fr]">
         <Headshot />
 

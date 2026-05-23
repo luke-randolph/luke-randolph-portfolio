@@ -25,7 +25,13 @@ const principles = [
 
 export function Principles() {
   return (
-    <Section id="principles" subtitle="principles" shortSubtitle="ethos" title="How I work:">
+    <Section
+      id="principles"
+      subtitle="principles"
+      shortSubtitle="ethos"
+      title="How I work:"
+      className="pb-0 lg:pb-12"
+    >
       <ol className="space-y-8">
         {principles.map((p, i) => (
           <li key={p.title} className="grid grid-cols-[3rem_1fr] gap-4">

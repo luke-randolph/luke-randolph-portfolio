@@ -13,7 +13,7 @@ export function Contact() {
       id="contact"
       subtitle="contact"
       title="Get in touch:"
-      className="flex min-h-screen flex-col justify-center lg:min-h-[50vh] lg:pb-54"
+      className="flex min-h-screen flex-col justify-center lg:min-h-[50vh] lg:pb-42"
     >
       <ul className="space-y-8 sm:space-y-10">
         {links.map(({ label, value, href, external }) => (
