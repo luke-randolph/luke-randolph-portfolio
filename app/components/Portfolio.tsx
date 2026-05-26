@@ -10,7 +10,7 @@ const projects = [
     tags: ["SvelteKit", "TypeScript", "Postgres / Drizzle", "Better-auth", "Stripe", "Sanity CMS"],
   },
   {
-    title: "Dungeon Tools",
+    title: "Dungeon Tools 5e",
     href: "https://dungeon-tools.luke-randolph.com",
     repoHref: "https://github.com/luke-randolph/dungeon-tools",
     description:
