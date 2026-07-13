@@ -33,7 +33,7 @@ export function CatsPopover() {
         aria-controls={panelId}
         className="cursor-pointer text-cyan"
       >
-        my 3 cats ₍^..^₎⟆
+        our cats ₍^..^₎⟆
       </button>
       <span
         id={panelId}

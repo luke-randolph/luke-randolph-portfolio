@@ -3,44 +3,31 @@ import { Headshot } from "./Headshot";
 import { Section } from "./Section";
 import { TagList } from "./TagList";
 
-const stack = {
+const skills = {
+  Languages: ["TypeScript", "JavaScript", "Python", "PHP", "C#", "SQL"],
   Frontend: [
-    "TypeScript",
+    "React",
+    "React Native",
     "Next.js",
     "SvelteKit",
-    "React Native",
     "Flutter",
     "Vue.js",
-    "Tailwind",
-    "Cypress",
-    "Storybook",
-    "Playwright",
-    "Vitest",
+    "Nuxt.js",
+    "Blazor",
   ],
-  Backend: [
-    "Node.js",
-    "Express.js",
-    "Python",
-    "FastAPI",
-    "PHP / Laravel",
-    "SQL",
+  Backend: ["Node.js", "Express.js", "NestJS", "FastAPI", "Laravel", "ASP.NET Core"],
+  "Database & ORM": [
     "SQLite",
-    "Postgres",
+    "MySQL",
+    "PostgresQL",
+    "SQLAlchemy",
+    "TypeORM",
     "Drizzle",
+    "Prisma",
+    "EF Core",
   ],
-  "Tooling / Integrations": [
-    "CI/CD",
-    "Git + Github Actions",
-    "Claude Code",
-    "Gemini",
-    "Cursor",
-    "Pytest",
-    "Jest",
-    "Stripe",
-    "Hubspot CMS",
-    "Sanity CMS",
-    "Wordpress",
-  ],
+  Marketing: ["SEO/AEO", "Hubspot CMS", "Sanity CMS", "Wordpress", "Contentful"],
+  DevOps: ["CI/CD", "Git + Github Actions", "Github", "Docker", "GCP", "Terraform"],
 };
 
 export function About() {
@@ -51,17 +38,18 @@ export function About() {
 
         <div className="relative space-y-5 text-lg leading-relaxed text-fg/90">
           <p>
-            I&apos;m a developer with over 6 years of experience working full-stack with web and
-            mobile apps. I have a passion for learning and creating!
+            I&apos;m a software engineer with over 6 years of experience working full-stack with web
+            and mobile apps. I have a passion for learning and creating!
           </p>
           <p>
-            I utilize the power of agentic coding tools, but I also have a deep understanding of
-            fundamentals and best practices. I am committed to quality through both manual and
-            automated testing.
+            I have a consistent history of driving projects to successful, on-time delivery that
+            predates AI-assisted development. I do not hesitate to harness the efficiency of agentic
+            tools, backed by my understanding of fundamentals and best practices. Quality is my
+            priority, enforced by manual and automated testing.
           </p>
           <p>
-            Outside of code: I&apos;m usually playing music, painting, designing, video editing,
-            exercising or spending time with my fiancée + <CatsPopover />
+            Outside of code: I&apos;m usually playing music, making art, video editing, exercising
+            or spending time with my wife + <CatsPopover />
           </p>
         </div>
       </div>
@@ -69,15 +57,10 @@ export function About() {
       <div className="mt-16">
         <p className="mb-6 font-mono text-sm tracking-wider text-cyan">
           <span className="text-fg-muted">{"// "}</span>
-          stack
-        </p>
-
-        <p className="mb-12 max-w-2xl text-lg text-fg-muted">
-          Technologies I&apos;ve worked with. Anything not on this list is just something I look
-          forward to learning in the future!
+          skills
         </p>
         <dl className="space-y-8">
-          {Object.entries(stack).map(([area, items]) => (
+          {Object.entries(skills).map(([area, items]) => (
             <div
               key={area}
               className="grid grid-cols-1 items-start gap-3 sm:grid-cols-[12rem_1fr] sm:gap-6"
