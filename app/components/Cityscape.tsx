@@ -6,6 +6,7 @@ import { cn } from "../lib/cn";
 
 type Slot =
   | { kind: "building"; w: number; h: number; lift: number; fade: number }
+  | { kind: "pole"; w: number; h: number; lift: number }
   | { kind: "space"; w: number };
 
 type RowConfig = {
@@ -17,6 +18,8 @@ type RowConfig = {
   parallaxY: number;
   scaleRate: number;
   baseLift: number;
+  // Chance a given window cell is lit
+  windowChance: number;
 };
 
 type SmokeConfig = {
@@ -47,7 +50,9 @@ const backSlots: Slot[] = [
   { kind: "building", w: 32, h: 180, lift: 0, fade: 32 },
   { kind: "space", w: 5 },
   { kind: "building", w: 22, h: 220, lift: 30, fade: 38 },
-  { kind: "space", w: 40 },
+  { kind: "space", w: 18 },
+  { kind: "pole", w: 26, h: 95, lift: 0 },
+  { kind: "space", w: 22 },
   { kind: "building", w: 44, h: 160, lift: -20, fade: 20 },
   { kind: "building", w: 28, h: 260, lift: 35, fade: 40 },
   { kind: "space", w: 10 },
@@ -72,7 +77,9 @@ const midSlots: Slot[] = [
   { kind: "building", w: 25, h: 280, lift: 30, fade: 38 },
   { kind: "space", w: 25 },
   { kind: "building", w: 50, h: 100, lift: -25, fade: 30 },
-  { kind: "space", w: 80 },
+  { kind: "space", w: 40 },
+  { kind: "pole", w: 30, h: 115, lift: 0 },
+  { kind: "space", w: 30 },
   { kind: "building", w: 90, h: 160, lift: 10, fade: 46 },
   { kind: "space", w: 70 },
   { kind: "building", w: 80, h: 110, lift: 20, fade: 42 },
@@ -90,7 +97,9 @@ const frontSlots: Slot[] = [
   { kind: "building", w: 88, h: 110, lift: 5, fade: 40 },
   { kind: "space", w: 10 },
   { kind: "building", w: 70, h: 100, lift: 40, fade: 55 },
-  { kind: "space", w: 40 },
+  { kind: "space", w: 20 },
+  { kind: "pole", w: 34, h: 130, lift: 0 },
+  { kind: "space", w: 20 },
   { kind: "building", w: 60, h: 90, lift: 2, fade: 50 },
 ];
 
@@ -105,6 +114,7 @@ const rows: RowConfig[] = [
     parallaxY: 0.04,
     scaleRate: 0.012,
     baseLift: 30,
+    windowChance: 0.08,
   },
   {
     slots: backSlots,
@@ -115,6 +125,7 @@ const rows: RowConfig[] = [
     parallaxY: 0.03,
     scaleRate: 0.025,
     baseLift: 0,
+    windowChance: 0.13,
   },
   {
     slots: midSlots,
@@ -125,6 +136,7 @@ const rows: RowConfig[] = [
     parallaxY: 0.02,
     scaleRate: 0.045,
     baseLift: 0,
+    windowChance: 0.16,
   },
   {
     slots: frontSlots,
@@ -135,6 +147,7 @@ const rows: RowConfig[] = [
     parallaxY: 0.0006,
     scaleRate: 0.1,
     baseLift: 0,
+    windowChance: 0.18,
   },
 ];
 
@@ -178,24 +191,132 @@ const smokes: SmokeConfig[] = [
   },
 ];
 
-function SlotItem({ slot, fillRgba }: { slot: Slot; fillRgba: string }) {
+// Small deterministic PRNG so windows land in the same spots on server and
+// client (no hydration mismatch) and stay put across renders.
+function mulberry32(seed: number) {
+  let s = seed >>> 0;
+  return () => {
+    s = (s + 0x6d2b79f5) | 0;
+    let t = Math.imul(s ^ (s >>> 15), 1 | s);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+type Window = { x: number; y: number; size: number };
+
+// Lay a grid of window cells over the solid (non-faded) upper part of a
+// building and light a seeded subset of them.
+function buildingWindows(seed: number, slot: Extract<Slot, { kind: "building" }>, chance: number) {
+  const rand = mulberry32(seed);
+  const inset = 5;
+  const colStep = 11;
+  const rowStep = 15;
+  // The gradient fades to transparent below `fade`%, so only the top part is
+  // opaque enough to carry windows.
+  const solidH = slot.h * (1 - slot.fade / 100);
+  const windows: Window[] = [];
+  for (let x = inset; x <= slot.w - inset; x += colStep) {
+    for (let y = inset; y <= solidH; y += rowStep) {
+      if (rand() < chance) {
+        windows.push({ x, y, size: rand() < 0.25 ? 3 : 2 });
+      }
+    }
+  }
+  return windows;
+}
+
+function SlotItem({ slot, config, seed }: { slot: Slot; config: RowConfig; seed: number }) {
   if (slot.kind === "space") {
     return <div style={{ width: `${slot.w}px`, flexShrink: 0 }} />;
   }
+
+  if (slot.kind === "pole") {
+    const post = 3;
+    return (
+      <div
+        style={{
+          position: "relative",
+          width: `${slot.w}px`,
+          height: `${slot.h}px`,
+          marginBottom: `${slot.lift}px`,
+          flexShrink: 0,
+        }}
+      >
+        {/* vertical post */}
+        <div
+          style={{
+            position: "absolute",
+            left: `${(slot.w - post) / 2}px`,
+            bottom: 0,
+            width: `${post}px`,
+            height: "100%",
+            background: config.fillRgba,
+          }}
+        />
+        {/* two crossarms near the top */}
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            top: "12%",
+            width: "100%",
+            height: `${post}px`,
+            background: config.fillRgba,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            left: "18%",
+            top: "22%",
+            width: "64%",
+            height: `${post}px`,
+            background: config.fillRgba,
+          }}
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       style={{
+        position: "relative",
         width: `${slot.w}px`,
         height: `${slot.h}px`,
         marginBottom: `${slot.lift}px`,
         flexShrink: 0,
-        background: `linear-gradient(to top, rgba(10,10,15,0) 0%, ${fillRgba} ${slot.fade}%, ${fillRgba} 100%)`,
+        background: `linear-gradient(to top, rgba(10,10,15,0) 0%, ${config.fillRgba} ${slot.fade}%, ${config.fillRgba} 100%)`,
       }}
-    />
+    >
+      {buildingWindows(seed, slot, config.windowChance).map((win, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: `${win.x}px`,
+            top: `${win.y}px`,
+            width: `${win.size}px`,
+            height: `${win.size}px`,
+            background: "rgba(235, 200, 120, 0.5)",
+            boxShadow: "0 0 3px 0 rgba(255, 200, 90, 0.35)",
+          }}
+        />
+      ))}
+    </div>
   );
 }
 
-function Row({ config, rowRef }: { config: RowConfig; rowRef: Ref<HTMLDivElement> }) {
+function Row({
+  config,
+  rowIndex,
+  rowRef,
+}: {
+  config: RowConfig;
+  rowIndex: number;
+  rowRef: Ref<HTMLDivElement>;
+}) {
   return (
     <div
       ref={rowRef}
@@ -207,7 +328,7 @@ function Row({ config, rowRef }: { config: RowConfig; rowRef: Ref<HTMLDivElement
       )}
     >
       {config.slots.map((slot, i) => (
-        <SlotItem key={i} slot={slot} fillRgba={config.fillRgba} />
+        <SlotItem key={i} slot={slot} config={config} seed={rowIndex * 100 + i} />
       ))}
     </div>
   );
@@ -300,6 +421,7 @@ export function Cityscape() {
         <Fragment key={i}>
           <Row
             config={row}
+            rowIndex={i}
             rowRef={(el) => {
               rowRefs.current[i] = el;
             }}

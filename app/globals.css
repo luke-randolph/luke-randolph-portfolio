@@ -10,6 +10,8 @@
   --color-lime: #9eff5c;
   --color-border: rgba(0, 240, 255, 0.18);
 
+  --breakpoint-3xl: 120rem;
+
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
 

@@ -2,24 +2,24 @@ import { Section } from "./Section";
 
 const principles = [
   {
-    title: "DRY and legible code",
-    body: 'I strive to write code that is human-readable, but with consistency and properly separated concerns. I look for the best solution, not just "a solution".',
+    title: "Clean Architecture & Separation of Concerns",
+    body: "I architect human-readable, highly maintainable codebases by strictly adhering to DRY principles and modular design. I don't stop at the first working solution; I refine until the code is performant, scalable, and intuitive for the next developer.",
   },
   {
-    title: "Embrace AI tooling",
-    body: "I utilize AI to plan, expedite prototyping, and boost productivity. I also read, test and think critically about the results it generates to get the most reliable and refined features.",
+    title: "AI-Augmented Engineering",
+    body: "I leverage AI tooling to accelerate prototyping, automate boilerplate, and maximize productivity. However, all generated code is subject to rigorous code review, testing, and critical analysis to ensure security and reliability.",
   },
   {
-    title: "Accessibility matters",
-    body: "Keyboard navigation, screen reader compatibility, visible focus, proper color contrast etc. A site that only works for the median user is broken; it just hasn't been measured yet.",
+    title: "Accessibility by Default",
+    body: "Details like keyboard navigation, screen reader compatibility, and semantic HTML matter. A site that only works for the 'median user' is fundamentally broken; high-quality software is measured by how accessible it is.",
   },
   {
-    title: "Leave it better than you found it",
-    body: `I apply the "boy scout principle" by paying attention to detail for continuous improvement. A codebase is like a living organism that requires upkeep.`,
+    title: "Boy Scout Principle",
+    body: `I treat codebases as living ecosystems that require constant upkeep. I proactively pay down technical debt, refactor legacy code, and leave every module cleaner and more stable than I found it.`,
   },
   {
-    title: "Ship the thing",
-    body: "Perfectionism has its limitations; businesses need results. Shipping and iterating is the key.",
+    title: "Pragmatic Delivery",
+    body: "Businesses win by shipping. I balance engineering excellence with commercial realities, prioritizing fast deployment and rapid iteration.",
   },
 ];
 
