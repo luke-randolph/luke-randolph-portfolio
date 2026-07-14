@@ -39,7 +39,8 @@ export function About() {
         <div className="relative space-y-5 text-lg leading-relaxed text-fg/90">
           <p>
             I&apos;m a software engineer with over 6 years of experience working full-stack with web
-            and mobile apps. I have a passion for learning and creating!
+            and mobile apps. I have a passion for learning and creating! I have collaborated
+            smoothly across numerous agile Scrum teams, ensuring continuous process improvement.
           </p>
           <p>
             I have a consistent history of driving projects to successful, on-time delivery that

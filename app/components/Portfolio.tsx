@@ -44,12 +44,7 @@ const projects = [
 
 export function Portfolio() {
   return (
-    <Section
-      id="portfolio"
-      subtitle="portfolio"
-      title="Selected works:"
-      description="Apps built to explore ideas/tools + demonstrate my skills (not live products serving real customers)."
-    >
+    <Section id="portfolio" subtitle="portfolio" title="Selected works:">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project) => (
           <NeonCard key={project.title} {...project} />
