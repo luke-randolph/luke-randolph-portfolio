@@ -40,7 +40,7 @@ const apps = [
     repoHref: "https://github.com/luke-randolph/price-pulse",
     description:
       "A quick reference for U.S. cost of living: a dashboard tracking consumer prices across groceries, energy, housing, and healthcare from Federal Reserve (FRED) data.",
-    tags: ["Blazor", "C#", "ASP.NET Core", "EF Core / SQLite"],
+    tags: ["C#", "ASP.NET Core", "Blazor", "EF Core / SQLite"],
   },
   {
     title: "Portfolio",
