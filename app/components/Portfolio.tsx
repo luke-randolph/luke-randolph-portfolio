@@ -47,7 +47,7 @@ const apps = [
     href: "https://luke-randolph.com",
     repoHref: "https://github.com/luke-randolph/luke-randolph-portfolio",
     description: "The site you're viewing right now :)",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind"],
+    tags: ["TypeScript", "React", "Next.js", "Tailwind"],
   },
 ];
 
