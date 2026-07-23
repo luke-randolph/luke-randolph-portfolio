@@ -19,11 +19,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Luke Randolph — Software Engineer",
-  description: "Full-stack web developer building accessible, resilient interfaces.",
+  description:
+    "Full-stack software engineer building vibrant, fast interfaces and efficient, secure APIs.",
   metadataBase: new URL("https://luke-randolph.com"),
   openGraph: {
     title: "Luke Randolph — Software Engineer",
-    description: "Full-stack web developer building accessible, resilient interfaces.",
+    description:
+      "Full-stack software engineer building vibrant, fast interfaces and efficient, secure APIs.",
     url: "https://luke-randolph.com",
     siteName: "Luke Randolph",
     type: "website",

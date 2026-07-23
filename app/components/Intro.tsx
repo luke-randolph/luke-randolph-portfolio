@@ -4,7 +4,7 @@ export function Intro() {
       id="intro"
       className="relative mx-auto flex min-h-screen max-w-5xl scroll-mt-16 flex-col justify-center px-6 sm:px-10"
     >
-      <h1 className="3xl:text-8xl font-mono text-5xl leading-none font-bold tracking-tight md:text-7xl">
+      <h1 className="font-mono text-5xl leading-none font-bold tracking-tight md:text-7xl 3xl:text-8xl">
         LUKE
         <br />
         RANDOLPH
@@ -18,7 +18,7 @@ export function Intro() {
       <p id="intro-claim" className="mt-6 max-w-xl text-lg leading-relaxed text-cyan">
         I build:
       </p>
-      <ul aria-labelledby="intro-claim" className="list-inside list-disc pl-3 text-fg/90">
+      <ul aria-labelledby="intro-claim" className="list-inside list-disc text-fg/90 md:pl-3">
         <li>UIs that are vibrant and fast on all devices</li>
         <li>APIs and data layers that are efficient and secure</li>
       </ul>

@@ -61,7 +61,7 @@ export default async function Image() {
         }}
       >
         <span style={{ color: "#00f0ff", marginRight: 14 }}>{">"}</span>
-        full-stack developer
+        full-stack software engineer
         <span
           style={{
             display: "flex",
