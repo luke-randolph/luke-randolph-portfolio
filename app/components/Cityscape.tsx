@@ -416,7 +416,10 @@ export function Cityscape() {
   }, []);
 
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-[5] overflow-hidden">
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-x-0 top-0 -z-[5] h-lvh overflow-hidden"
+    >
       {rows.map((row, i) => (
         <Fragment key={i}>
           <Row
