@@ -12,8 +12,23 @@ const cats = [
 
 export function CatsPopover() {
   const [open, setOpen] = useState(false);
+  const [below, setBelow] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   const panelId = useId();
+
+  useEffect(() => {
+    const check = () => {
+      const rect = ref.current?.getBoundingClientRect();
+      if (rect) setBelow(rect.top < window.innerHeight / 2);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -41,7 +56,8 @@ export function CatsPopover() {
         aria-label="Photos of my three cats"
         aria-hidden={!open}
         className={cn(
-          "absolute bottom-8 left-0 z-20 transition-opacity duration-200 xl:right-0 xl:left-auto",
+          "absolute left-0 z-20 transition-opacity duration-200 xl:right-0 xl:left-auto",
+          below ? "top-[calc(100%+0.5rem)]" : "bottom-8",
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0 group-hover/cats:pointer-events-auto group-hover/cats:opacity-100",
