@@ -15,7 +15,7 @@ const skills = {
     "Nuxt.js",
     "Blazor",
   ],
-  Backend: ["Node.js", "Express.js", "NestJS", "FastAPI", "Laravel", "ASP.NET Core"],
+  Backend: ["Node.js", "Express.js", "Nest.js", "FastAPI", "Laravel", ".NET", "ASP.NET Core"],
   "Database & ORM": [
     "SQLite",
     "MySQL",
